@@ -1,5 +1,160 @@
-.App {
+body {
+  background-color: #282C34;
+}
+
+.header {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.header h1{
+  background-color: #20232A;
+  padding: 30px 0;
+  color: #61DAFB;
+  font-size: 40px;
+}
+
+.recipes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   text-align: center;
 }
 
+.recipe{
+  margin: 50px 35px;
+  width: 27%;
+  background-color: #32363E;
+  padding: 30px 0;
+  max-height: 500px;
+}
 
+.title{
+  color: #ffffff;
+  margin: 10px 25px;
+}
+
+.desc{
+  color: #37cdf7;
+  margin: 30px 25px;
+  font-size: 18px;
+}
+
+.ingredients{
+   color: #087fa0;
+   text-align: left;
+   padding-left: 35px;
+   padding-bottom: 15px;
+}
+
+.addBtn{
+    background-color: #61dafb;
+    color: #000000;
+    padding: 10px 25px;
+    border: none;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+
+  .addBtn:hover{
+    color: #282c34;
+    background-color: #ffffff;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+  color: #282c34;
+  font-size: 15px;
+}
+
+.view{
+   padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(151, 124, 226);
+  max-width: 110px;
+}
+
+.view:hover{
+  background-color: rgb(98, 55, 214);
+  color: #ffffff;
+}
+ 
+.remove{
+ padding: 10px 18px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(230, 114, 153);
+  max-width: 110px;
+}
+
+.remove:hover{
+  background-color: rgb(219, 41, 100);
+  color: #ffffff;
+}
+
+.add{
+  background-color: rgb(35, 170, 46);
+  padding: 4px 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.add:hover{
+   background-color: rgb(47, 141, 56);
+   color: #ffffff;
+}
+
+.popup{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(17, 70, 95, 0.575);
+    position: fixed;
+    top: 0; 
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-inner{
+ padding: 20px;
+    border-radius: 12px;
+    background-color:rgba(129, 212, 250, 0.89);
+    min-height: 300px;
+    max-height: 675px;
+    max-width: 490px;
+    min-width: 490px;
+}
+
+.popup-inner h2{
+  text-align: center;
+}
+
+.form-group{
+  margin: 20px;
+}
+
+.form-label{
+  min-width: 100px;
+}
+
+.inline{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  width: 90%;
+  margin: 10px 0;
+}

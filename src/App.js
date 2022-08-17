@@ -89,23 +89,30 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My recipes</h1>
-      <button onClick={() => setPopupActive(!popupActive)}>Add recipe</button>
+      <div className="header">
+        <h1>React recipes</h1>
+        <button className="addBtn" onClick={() => setPopupActive(!popupActive)}>
+          Add recipe
+        </button>
+      </div>
       <div className="recipes">
         {recipes.map((recipe, i) => (
           <div className="recipe" key={recipe.id}>
-            <h3>{recipe.title}</h3>
-            <p dangerouslySetInnerHTML={{ __html: recipe.description }}></p>
+            <h2 className="title">{recipe.title}</h2>
+            <p
+              className="desc"
+              dangerouslySetInnerHTML={{ __html: recipe.description }}
+            ></p>
             {recipe.viewing && (
-              <div>
-                <h4>Ingredients</h4>
+              <div className="ingredients">
+                <h3>Ingredients</h3>
                 <ul>
                   {recipe.ingredients.map((ingredient, i) => (
                     <li key={i}>{ingredient}</li>
                   ))}
                 </ul>
 
-                <h4>Steps</h4>
+                <h3>Steps</h3>
                 <ol>
                   {recipe.steps.map((step, i) => (
                     <li key={i}> {step}</li>
@@ -115,12 +122,15 @@ function App() {
             )}
 
             <div className="buttons">
-              <button onClick={() => handleView(recipe.id)}>
+              <button className="view" onClick={() => handleView(recipe.id)}>
                 View {recipe.viewing ? "less" : "more"}
               </button>
-              <button className="remove"
-              onClick={() => removeRecipe(recipe.id)}
-              >Remove recipe</button>
+              <button
+                className="remove"
+                onClick={() => removeRecipe(recipe.id)}
+              >
+                Remove recipe
+              </button>
             </div>
           </div>
         ))}
@@ -133,63 +143,88 @@ function App() {
 
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>Title</label>
-                <input
-                  type="text"
-                  value={form.title}
-                  onChange={(e) => setForm({ ...form, title: e.target.value })}
-                ></input>
+                <div className="inline">
+                  <label className="form-label">Title</label>
+                  <input
+                    type="text"
+                    value={form.title}
+                    onChange={(e) =>
+                      setForm({ ...form, title: e.target.value })
+                    }
+                  ></input>
+                </div>
               </div>
 
               <div className="form-group">
-                <label>Description</label>
-                <textarea
-                  type="text"
-                  value={form.description}
-                  onChange={(e) =>
-                    setForm({ ...form, description: e.target.value })
-                  }
-                ></textarea>
+                <div className="inline">
+                  <label className="form-label">Description</label>
+                  <textarea
+                    type="text"
+                    value={form.description}
+                    onChange={(e) =>
+                      setForm({ ...form, description: e.target.value })
+                    }
+                  ></textarea>
+                </div>
               </div>
 
               <div className="form-group">
-                <label>Ingredients</label>
+                <div className="inline">
+                  <label className="form-label">Ingredients</label>
+                  <button
+                    className="add"
+                    type="button"
+                    onClick={handleIngredientCount}
+                  >
+                    Add ingredient
+                  </button>
+                </div>
                 {form.ingredients.map((ingredient, i) => (
                   <input
+                    className="column"
                     type="text"
                     key={i}
                     value={ingredient}
                     onChange={(e) => handleIngredient(e, i)}
                   />
                 ))}
-                <button type="button" onClick={handleIngredientCount}>
-                  Add ingredient
-                </button>
               </div>
 
               <div className="form-group">
-                <label>Steps</label>
+                <div className="inline">
+                  <label className="form-label">Steps</label>
+                  <button
+                    className="add"
+                    type="button"
+                    onClick={handleStepCount}
+                  >
+                    Add step
+                  </button>
+                </div>
                 {form.steps.map((step, i) => (
                   <textarea
+                    className="column"
                     type="text"
                     key={i}
                     value={step}
                     onChange={(e) => handleStep(e, i)}
                   />
                 ))}
-                <button type="button" onClick={handleStepCount}>
-                  Add step
-                </button>
               </div>
 
               <div className="buttons">
-                <button type="submit">Submit</button>
-                <button type="button"
-                onClick={() => setPopupActive(false)}
-                >Close</button>
+                <button className="view" type="submit">
+                  Submit
+                </button>
+                <button
+                  className="remove"
+                  type="button"
+                  onClick={() => setPopupActive(false)}
+                >
+                  Close
+                </button>
               </div>
             </form>
-            {/* {JSON.stringify(form)} */}
           </div>
         </div>
       )}
